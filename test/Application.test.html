@@ -1,0 +1,95 @@
+*{ You can use plain selenium command using the selenium tag }*
+
+#{fixture delete:'all', load:'data.yml' /}
+
+#{selenium 'Test Home'}
+// Open the home page, and check that no error occured
+open('/')
+assertNotTitle('Application error')
+#{/selenium}
+
+#{selenium 'Test Nonuser'}
+// Test that you need and account to login
+clearSession()
+open('/')
+clickAndWait('link=Sign In')
+assertTextPresent('Or Use Your Email Address')
+//Use an account that doesn't exits
+type('name=user.email','nonuser@test.com')
+type('css=.fakePassword','testtest')
+clickAndWait('css=.emailSignIn input[type=submit]')
+assertTextPresent('This user doesn't exist')
+#{/selenium}
+
+#{selenium 'Test Sign Up'}
+// Test that you can create an accout
+clearSession()
+open('/')
+clickAndWait('link=Create Account')
+// Type in some user info
+type('name=user.firstName','Test')
+type('name=user.lastName','Tester')
+type('name=user.email','person@test.com')
+type('name=user.email','person@test.com')
+type('css=.fakePassword','password123')
+type('css=.fakePasswordRepeat','password123')
+type('name=user.organization','Open mHealth Testers')
+type('name=user.description','Test This is a test account')
+clickAndWait('css=.createEmailAccount input[type=submit]')
+assertTextPresent('Test Tester')
+//assertTextPresent('Sign Out')
+//clickAndWait('link=Sign Out')
+
+#{/selenium}
+
+#{selenium 'Test Sign In'}
+// Test that you can sign in and out
+clearSession()
+open('/')
+clickAndWait('link=Sign In')
+assertTextPresent('Or Use Your Email Address')
+//Use an account that doesn't exits
+type('name=user.email','person@test.com')
+type('css=.fakePassword','password123')
+clickAndWait('css=.emailSignIn input[type=submit]')
+assertTextPresent('Test Tester')
+#{/selenium}
+
+#{selenium 'Create DSU'}
+// Test that you can sign in and out
+open('/DSU/create')
+assertTextPresent('Add Data Storage Unit')
+type('css=#fakeName','Ohmage')
+type('name=dsu.name','Ohmage')
+type('name=dsu.URL','https://test.ohmage.org/app/omh/v1.0/registry/read')
+type('css=#schemaIDs','omh:ohmage:observer:edu.ucla.cens.contextsens:accelerometer, omh:ohmage:observer:edu.ucla.cens.contextsens:cell, omh:ohmage:observer:edu.ucla.cens.contextsens:gravity')
+type('name=dsu.sourceRepository','https://github.com/ohmage')
+type('name=dsu.keyWords','Test')
+type('name=dsu.description','Test ***MarkDown***')
+//registering all of the schemas (this can take a while!)
+clickAndWait('css=input[value=Submit]')
+#{/selenium}
+
+#{selenium 'Create DPU'}
+// Test that you can sign in and out
+open('/DPU/create')
+assertTextPresent('Add a Data Processing Unit')
+type('name=dpu.name','Test DPU')
+type('name=dpu.sourceRepository','https://github.com/dpu')
+type('name=dpu.keyWords','Test')
+type('name=dpu.description','Test ***MarkDown***')
+//registering all of the schemas (this can take a while!)
+clickAndWait('css=input[value=Create DPU]')
+#{/selenium}
+
+#{selenium 'Create DVU'}
+// Test that you can sign in and out
+open('/DVU/create')
+assertTextPresent('Add a Data Visualization Unit')
+type('name=dvu.name','Test DVU')
+type('name=dvu.sourceRepository','https://github.com/dvu')
+type('name=dvu.keyWords','Test')
+type('name=dvu.description','Test ***MarkDown***')
+//registering all of the schemas (this can take a while!)
+clickAndWait('css=input[value=Create DVU]')
+#{/selenium}

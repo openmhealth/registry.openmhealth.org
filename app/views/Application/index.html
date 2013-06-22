@@ -1,0 +1,1391 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Open mHeath Schema Registry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/png" href="/public/img/favicon.png">
+    <link href="/public/css/index.css" type="text/css" rel="stylesheet">
+    <link href="/public/css/fonts.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/public/lib/jquery.js"></script>
+    <script type="text/javascript" src="/public/lib/jquery.sha1.js"></script>
+    <script type="text/javascript" src="/public/js/app.js"></script>
+  </head>
+  <body class="cached">
+
+    <div id="header">
+      <div class="center content">
+        <ul class="welcome signIn">
+          <li><a href="/sign-in">Sign In</a></li>
+          <li><a href="/person/create">Create Account</a></li>
+        </ul>
+        <ul class="welcome signOut">
+          <li><a class="username">Marc Schwartz</a></li>
+          <li><a href="/sign-out">Sign Out</a></li>
+        </ul>
+        <a href="http://openmhealth.org">
+          <img src="/public/img/logo.png" class="logo"/>
+        </a>
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/schemas">Schemas</a></li>
+          <li><a href="/units">Units</a></li>
+          <li><a href="/people">People</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!--
+    ---------------------------------------------------------------------
+    -->
+
+    <div id="subHead">
+      <div class="center">
+        <h1>Open mHeath Schema Registry</h1>
+        <form class="search" action="/search" method="get">
+          <input placeholder="Search the Registy" name="q"/>
+          <input type="submit" value="go"/>
+        </form>
+      </div>
+    </div>
+
+    <!--
+    ---------------------------------------------------------------------
+    -->
+
+    <div id="tombstone" class="section">
+      <div class="white">
+        <div class="center">
+          <p style=" font-size: 20px;padding-top: 20px;">
+            The registry is undergoing testing and will launch soon. <br/>
+            To view the test site, please visit: 
+            <strong>
+              <a href="http://test.registry.openmhealth.org">test.registry.openmhealth.org</a> 
+            </strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!--
+    ---------------------------------------------------------------------
+    -->
+
+    <div id="index" class="section">
+      <div class="white">
+        <div class="center">
+          <div class=" leftCol">
+            <h2>Schemas: newest</h2>
+            <ul class="newestSchemas">
+              <li>
+                <a class="id toHref full" href="/schema/">
+                  <span class="skeemaID">skeema</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class=" rightCol">
+            <h2>Schemas: most starred</h2>
+            <ul class="staredSchemas">
+              <li>
+                <a class="id toHref full" href="/schema/">
+                  <span class="skeemaID">skeema</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="clear"></div>
+
+          <div class=" leftCol">
+            <h2>Data Storage Units</h2>
+            <ul class="dsus">
+              <li>
+                <a class="id toHref full" href="/DSU/">
+                  <span class="name">dsu</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class=" rightCol">
+            <h2>Data Processing Units</h2>
+            <ul class="dpus">
+              <li>
+                <a class="id toHref full" href="/DPU/">
+                  <span class="name">dsu</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="clear"></div>
+
+          <div class=" leftCol">
+            <h2>Data Visualization Units</h2>
+            <ul class="dvus">
+              <li>
+                <a class="id toHref full" href="/DVU/">
+                  <span class="name">dsu</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class=" rightCol">
+            <h2>People</h2>
+            <ul class="people">
+              <li>
+                <a class="id toHref full" href="/person/">
+                  <span class="firstName">dsu</span>
+                  <span class="lastName">dsu</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+          <div>
+            <h2>Keywords</h2>
+            <div class="keywords">
+              <a href="#">dsu</a>
+              <span>, </span>
+              <a href="#"> ohmage</a>
+              <span>, </span>
+              <a href="#"> ucla</a>
+              <span>, </span>
+              <a href="#"> cens</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    ABOUT
+    -->
+
+    <div id="about" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>About</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut 
+            est tortor. Suspendisse rutrum sodales elementum. Sed ut ultrices
+            nulla. Donec porttitor facilisis aliquam. Curabitur tincidunt pel
+            lentesque dui, a fermentum metus imperdiet sit amet. Maecenas ac 
+            fringilla risus. Sed vel tortor dapibus ipsum suscipit convallis.
+            Fusce fringilla adipiscing est, in congue velit blandit ac.</p>
+          <p>
+            Mauris ut fringilla sem. Maecenas faucibus ipsum augue, viverra 
+            dapibus magna porttitor a. Cras quis urna quis tortor pulvinar
+            ultricies a nec urna. Quisque id pretium mi. Aenean vitae feugiat
+            purus. Curabitur aliquet enim eu velit blandit rutrum. Ut tristique
+            ligula non turpis interdum, eu convallis orci tristique. Morbi
+            in tellus a lorem tempor condimentum. Quisque fringilla dictum
+            nibh, vitae mattis nunc tempus vitae. Nulla facilisis tempus urna,
+            sed iaculis tellus rutrum ac. Praesent tincidunt fermentum mauris,
+            eget euismod elit.</p>
+          <p>
+            Donec non lectus nec erat pharetra pharetra. Nulla facilisi. 
+            Nam quis aliquam diam. Cras auctor at libero eu blandit. Vivamus 
+            vel sollicitudin mi, eget dictum neque. Mauris vitae rhoncus massa.
+            Sed sagittis cursus nisl, eleifend gravida sem ultricies 
+            scelerisque. Praesent lacinia et urna at dictum. Duis mi magna,
+            pharetra eget consectetur quis, ultricies eget quam.</p>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    SCHEMAS
+    -->
+
+    <div id="schemas" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Schemas</h2>
+          <ul>
+            <li>
+              <a class="id toHref full" href="/schema/">
+                <span class="skeemaID">skeema</span>
+                <br>
+                <span class="light keyWords">No keywords yet, please add some.</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div id="editSchema" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Edit Schema
+            <a class="edit id toHref" href="/schema/delete/">Delete</a>
+          </h2>
+          <form action="/UpdateController/editSchema" method="POST"> 
+            <input type="hidden" name="skeema.id" class="id" value="1"> 
+            <label>Schema ID</label> 
+            <input type="text" name="skeema.skeemaID" class="skeemaID"
+                   value="omh:ohmage:observer:edu.ucla.cens.contextsens:accelerometer"> 
+            <div class=" descriptionEdit"> 
+              <label>Description</label> 
+              <div class=" help">
+                You can use plain text or 
+                <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax. 
+              </div> 
+              <textarea name="skeema.description" class="description"></textarea> 
+            </div> 
+            <div class=" keyWordsEdit"> 
+              <label>Key Words</label> 
+              <div class=" help">
+                Place commas between multiple keywords or key phrases. 
+              </div> 
+              <textarea name="skeema.keyWords" class="keyWords"></textarea> 
+            </div> 
+            <input type="submit"> 
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div id="schema" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>
+            <span class="stars"></span>
+            <span class="skeemaID">Schema</span>
+            <a class="edit id toHref" href="/schema/edit/">Edit</a>
+          </h2>
+
+          <label>Maintainers</label> 
+          <div class="maintainers">
+            Maintainer
+          </div> 
+
+          <label>Key Words</label> 
+          <div class="keyWords">
+            No keywords yet, please add some.
+          </div>
+
+          <label>Test and View</label> 
+          <div class="dsus">
+          </div> 
+          <div class="testResults hidden">
+          </div> 
+
+          <label>Description</label> 
+          <div class="markdown description">
+            No description yet, please add one.
+          </div> 
+
+        </div>
+      </div>
+      <script type="text/javascript">
+        // --
+        $("#schema a.test").click(function() {
+          var a = $(this);
+          var url = a.attr("href");
+          $.post(url, function(res) {
+            console.log(res);
+            $(".testResults").removeClass("hidden").html(app.syntaxHigh(res));
+          });
+          return false;
+        });
+        // --
+        $("#schema .stars").click(function() {
+          $(this).toggleClass("selected");
+          var url = "/Application/star";
+          var data = {
+            url: window.location.toString(),
+            selected: $(this).hasClass("selected").toString()
+          };
+          $.post(url, data);
+        });
+        // --
+      </script>
+    </div>
+
+    <!-- 
+    UNITS
+    -->
+
+    <div id="units" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Units</h2>
+          <div class="threeCol">
+            <div class="col">
+              <div class="inner">
+                <h3>
+                  Data Storage <br/> Units
+                </h3>
+                <a href="/DSUs">
+                  <div class="dsuIcon"></div>
+                  <span class="browse">Browse All DSUs</span>
+                </a>
+                <a class="reg" href="/DSU/create">Register a DSU</a>
+              </div>
+            </div>
+            <div class="col dpu">
+              <div class="inner">
+                <h3>
+                  Data Processing <br/> Units 
+                </h3>
+                <a href="/DPUs">
+                  <div class="dpuIcon"></div>
+                  <span class="browse">Browse All DPUs</span>
+                </a>
+                <a class="reg" href="/DPU/create">Register a DPU</a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="inner">
+                <h3>
+                  Data Visualization <br/> Units
+                </h3>
+                <a href="/DVUs">
+                  <div class="dvuIcon"></div>
+                  <span class="browse">Browse All DVUs</span>
+                </a>
+                <a class="reg" href="/DVU/create">Register a DVU</a>
+              </div>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div id="dsus" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Data Storage Units</h2>
+          <ul class="units">
+            <li class="half">
+              <a class="id toHref full" href="/DSU/">
+                <div class="name">DSU</div>
+                <div class="organizations"> </div>
+                <div class="maintainers"></div>
+                <div class="light keyWords">No keywords yet, please add some.</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <!-- -->
+
+    <div id="dpus" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Data Processing Units</h2>
+          <ul class="units">
+            <li class="half">
+              <a class="id toHref full" href="/DPU/">
+                <div class="name">DPU</div>
+                <div class="organizations"> </div>
+                <div class="maintainers"></div>
+                <div class="light keyWords">No keywords yet, please add some.</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <!-- -->
+
+    <div id="dvus" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Data Visualization Units</h2>
+          <ul class="units">
+            <li class="half">
+              <a class="id toHref full" href="/DVU/">
+                <div class="name">DVU</div>
+                <div class="organizations"> </div>
+                <div class="maintainers"></div>
+                <div class="light keyWords">No keywords yet, please add some.</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div id="createDSU" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Add Data Storage Unit</h2>
+          <form class="registryReader"> 
+            <input type="hidden" name="step" value="1"> 
+            <label>Name</label> 
+            <input type="text" id="fakeName" placeholder="ex. Ohmage"> 
+            <label>Registry Read URL</label> 
+            <input type="text" id="fakeUrl" placeholder=" ex. https://test.ohmage.org/app/omh/v1.0/registry/read"> 
+            <br> 
+            <input type="submit" value="Continue" class="btn"> 
+            <img class="loading" style="height: 20px;display: none" src="/public/img/loading.gif"> 
+          </form>
+
+          <form method="post" action="/UpdateController/createDSU"
+                class=".dsuCreate registrySubmitter hidden"> 
+            <input type="hidden" name="step" value="2"> 
+            <label>Name</label> 
+            <input type="text"  id="name" name="dsu.name"> 
+            <label>Server URL</label> 
+            <input type="text" id="url" name="dsu.URL"> 
+            <label>Schema IDs</label> 
+            <textarea id="schemaIDs" name="skeemas" rows="5">  </textarea> 
+            <label>Source Code Repository URL</label> 
+            <input type="text" id="name" name="dsu.sourceRepository"> 
+            <label>Key Words</label>
+            <div class=" help">
+              Place commas between multiple keywords or key phrases. 
+            </div> 
+            <input type="text" name="dsu.keyWords" class="keyWords">
+            <label>Description</label> 
+            <textarea id="description" name="dsu.description" rows="5">  </textarea> 
+            <br> 
+            <input type="submit" value="Submit" class="btn"> 
+          </form>
+
+        </div>
+      </div>
+      <script type="text/javascript">
+        $("#createDSU form.registryReader").submit(function() {
+          var form = $(this);
+          var server = form.find("#fakeUrl").val();
+          $("#url").val(server);
+          var loading = form.find(".loading");
+          loading.show();
+          $.post(server, function(res) {
+            loading.hide();
+            var schemaIDs = "";
+            form.addClass("hidden");
+            $(".registrySubmitter").removeClass("hidden");
+            $("#name").val($("#fakeName").val());
+            $.each(res, function() {
+              //console.log(this.payload_id);
+              schemaIDs += this.payload_id + ", ";
+            });
+            //console.log(schemaIDs);
+            $("#schemaIDs").text(schemaIDs);
+          });
+          return false;
+        });
+      </script>
+    </div>
+
+    <!-- -->
+
+    <div id="createDPU" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Add a Data Processing Unit</h2>
+          <form class="createEmailAccount" action="/UpdateController/createDPU"
+                method="POST"> 
+            <input type="hidden" name="refURL"/>
+            <label>Name <span class="req">*required</span></label> 
+            <input type="text" name="dpu.name" placeholder="First Name" 
+                   class="name"/> 
+            <label>Source Repository URL</label> 
+            <input type="text" name="dpu.sourceRepository"
+                   class="sourceRepository"/> 
+            <label>Key Words</label> 
+            <div class=" help">
+              Place commas between multiple keywords or key phrases. 
+            </div> 
+            <input type="text" name="dpu.keyWords" class="keyWords">
+            <label>Description <span class="req">*required</span></label> 
+            <div class=" help">
+              You can use plain text or 
+              <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax. 
+            </div> 
+            <textarea name="dpu.description" rows="5" class="description markdown">
+            </textarea>
+            <br>
+            <label>Supported Schemas (comma separated list)</label>
+            <textarea name="skeemas" class="dpuSkeemas"></textarea>
+            <br>
+            <input type="submit" value="Create DPU" class="btn"> 
+            <span class='error'></span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div id="createDVU" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Add a Data Visualization Unit</h2>
+          <form class="createEmailAccount" action="/UpdateController/createDVU"
+                method="POST"> 
+            <input type="hidden" name="refURL"/>
+            <label>Name <span class="req">*required</span></label> 
+            <input type="text" name="dvu.name" placeholder="First Name" 
+                   class="name"/> 
+            <label>Source Repository URL</label> 
+            <input type="text" name="dvu.sourceRepository"
+                   class="sourceRepository"/> 
+            <label>Key Words</label> 
+            <div class=" help">
+              Place commas between multiple keywords or key phrases. 
+            </div> 
+            <input type="text" name="dvu.keyWords" class="keyWords"/> 
+
+            <label>Description<span class="req">*required</span></label> 
+            <div class=" help">
+              You can use plain text or 
+              <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax. 
+            </div> 
+            <textarea name="dvu.description"  rows="5" 
+                      class="description markdown">
+            </textarea>
+            <br>
+            <label>Supported Schemas (comma separated list)</label>
+            <textarea name="skeemas" class="dvuSkeemas"></textarea>
+            <br>
+            <input type="submit" value="Create DVU" class="btn"> 
+            <span class='error'></span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div id="dsu" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>
+            <span class="stars"></span>
+            <span class="name">Unisdts</span>
+            <a class="id edit toHref" href="/DSU/edit/">Edit</a>
+          </h2>
+          <label>Maintainers</label>
+          <ul class="user">
+            <li>
+              <a class="full toHref" href="/person/">
+                <span class="firstName"></span>
+                <span class="lastName"></span>
+                <span>, </span>
+                <span class="organization"></span>
+              </a>
+            </li>
+          </ul>
+          <label>Version</label>
+          <div class="version">1.0</div>
+          <label>Key Words</label>
+          <div class="keyWords">No keywords yet, please add some.</div>
+          <label>Source Code Repository</label>
+          <div>
+          </div>
+          <a class="sourceRepository toHref" href="">
+            <span class="sourceRepository">No Repository Defined</span>
+          </a>
+          <label>Description</label>
+          <div class="description markdown"></div>
+          <label>Schemas</label>
+          <ul class="schemas">
+            <li>
+              <a class=" toHref" href="/schema/">
+                <span class="skeemaID"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $("#dsu .stars").click(function() {
+          $(this).toggleClass("selected");
+          var url = "/Application/star";
+          var data = {
+            url: window.location.toString(),
+            selected: $(this).hasClass("selected").toString()
+          };
+          $.post(url, data);
+        });
+      </script>
+    </div>
+
+    <!-- -->
+
+    <div id="dpu" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>
+            <span class="stars"></span>
+            <span class="name">Unisdts</span>
+            <a class="id edit toHref" href="/DPU/edit/">Edit</a>
+          </h2>
+          <label>Maintainers</label>
+          <ul class="user">
+            <li>
+              <a class="full toHref" href="/person/">
+                <span class="firstName"></span>
+                <span class="lastName"></span>
+                <span>, </span>
+                <span class="organization"></span>
+              </a>
+            </li>
+          </ul>
+          <label>Key Words</label>
+          <div class="keyWords">No keywords yet, please add some.</div>
+          <label>Source Code Repository</label>
+          <div>
+          </div>
+          <a class="sourceRepository toHref" href="">
+            <span class="sourceRepository">No Repository Defined</span>
+          </a>
+          <label>Description</label>
+          <div class="description markdown"></div>
+          <label>Schemas</label>
+          <ul class="schemas">
+            <li>
+              <a class=" toHref" href="/schema/">
+                <span class="skeemaID"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $("#dsu .stars").click(function() {
+          $(this).toggleClass("selected");
+          var url = "/Application/star";
+          var data = {
+            url: window.location.toString(),
+            selected: $(this).hasClass("selected").toString()
+          };
+          $.post(url, data);
+        });
+        // --
+      </script>
+    </div>
+
+    <!-- -->
+
+    <div id="dvu" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>
+            <span class="stars"></span>
+            <span class="name">Unisdts</span>
+            <a class="id edit toHref" href="/DVU/edit/">Edit</a>
+          </h2>
+          <label>Maintainers</label>
+          <ul class="user">
+            <li>
+              <a class="full toHref" href="/person/">
+                <span class="firstName"></span>
+                <span class="lastName"></span>
+                <span>, </span>
+                <span class="organization"></span>
+              </a>
+            </li>
+          </ul>
+          <label>Key Words</label>
+          <div class="keyWords">No keywords yet, please add some.</div>
+          <label>Source Code Repository</label>
+          <div>
+          </div>
+          <a class="sourceRepository toHref" href="">
+            <span class="sourceRepository">No Repository Defined</span>
+          </a>
+          <label>Description</label>
+          <div class="description markdown"></div>
+          <label>Schemas</label>
+          <ul class="schemas">
+            <li>
+              <a class=" toHref" href="/schema/">
+                <span class="skeemaID"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $("#dvu .stars").click(function() {
+          $(this).toggleClass("selected");
+          var url = "/Application/star";
+          var data = {
+            url: window.location.toString(),
+            selected: $(this).hasClass("selected").toString()
+          };
+          $.post(url, data);
+        });
+      </script>
+    </div>
+
+    <!-- -->
+
+
+    <div id="editDsu" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Edit DSU
+            <a class="edit id toHref" href="/DSU/delete/">Delete</a>
+          </h2>
+          <form action="/UpdateController/editDSU" method="post" 
+                accept-charset="utf-8">
+            <label>name</label>
+            <input type="hidden" name="dsu.id" class="id">
+            <input type="text" name="dsu.name" class="name">
+            <label>version</label>
+            <input type="text" name="dsu.version" class="version">
+            <label>Registry Read URL</label>
+            <input type="text" name="dsu.URL" class="URL">
+            <label>Key Words</label>
+            <input type="text" name="dsu.keyWords" class="keyWords">
+            <label>Source Code Repository</label>
+            <input type="text" name="dsu.sourceRepository" class="sourceRepository">
+            <label>Description</label>
+            <div class=" help">
+              You can use plain text or 
+              <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax. 
+            </div> 
+            <textarea name="dsu.description" class="description"></textarea>
+            <label>Supported Schemas (comma separated list)</label>
+            <textarea name="skeemas" class="dsuSkeemas"></textarea>
+            <br/>
+            <input  type="submit" value="Save DSU"/>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+    <div id="editDpu" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Edit DPU
+            <a class="edit id toHref" href="/DPU/delete/">Delete</a>
+          </h2>
+          <form action="/UpdateController/editDPU" method="post" 
+                accept-charset="utf-8">
+            <label>name</label>
+            <input type="hidden" name="dpu.id" class="id">
+            <input type="text" name="dpu.name" class="name">
+            <label>version</label>
+            <input type="text" name="dpu.version" class="version">
+            <label>Key Words</label>
+            <input type="text" name="dpu.keyWords" class="keyWords">
+            <label>Source Code Repository</label>
+            <input type="text" name="dpu.sourceRepository" class="sourceRepository">
+            <label>Description</label>
+            <div class=" help">
+              You can use plain text or 
+              <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax. 
+            </div> 
+            <textarea name="dpu.description" class="description"></textarea>
+            <label>Supported Schemas (comma separated list)</label>
+            <textarea name="skeemas" class="dpuSkeemas"></textarea>
+            <br/>
+            <input  type="submit" value="Save DPU"/>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+    <div id="editDvu" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Edit DVU
+            <a class="edit id toHref" href="/DVU/delete/">Delete</a>
+          </h2>
+          <form action="/UpdateController/editDVU" method="post" 
+                accept-charset="utf-8">
+            <label>name</label>
+            <input type="hidden" name="dvu.id" class="id">
+            <input type="text" name="dvu.name" class="name">
+            <label>version</label>
+            <input type="text" name="dvu.version" class="version">
+            <label>Key Words</label>
+            <input type="text" name="dvu.keyWords" class="keyWords">
+            <label>Source Code Repository</label>
+            <input type="text" name="dvu.sourceRepository" class="sourceRepository">
+            <label>Description</label>
+            <div class=" help">
+              You can use plain text or 
+              <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax. 
+            </div> 
+            <textarea name="dvu.description" class="description"></textarea>
+            <label>Supported Schemas (comma separated list)</label>
+            <textarea name="skeemas" class="dvuSkeemas"></textarea>
+            <br/>
+            <input  type="submit" value="Save DVU"/>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- -->
+
+    <div id="schemaUploadStatus" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>
+            Schema Upload Status
+          </h2>
+          <p>You can leave this page and check back later. 
+            Navigating away from this page or closing the 
+            browser window will not interfere with the upload process.
+          </p>
+          <div class="schemaUpload">
+            Loading... 
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        {
+          var checkStatus = function() {
+            uStatus = $("#schemaUploadStatus");
+            $.post("/uploadStatus", function(res) {
+              uStatus.find(".schemaUpload").html(res);
+              if (uStatus.find(".num").text() !== uStatus.find(".total").text()) {
+                setTimeout(checkStatus, 1500);
+              }
+            });
+          };
+          setTimeout(checkStatus, 1500);
+        }
+      </script>
+    </div>
+
+    <!-- 
+    AUTH
+    -->
+
+    <div id="signIn" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Use Your OpenID</h2>
+          <form action="/Application/openID" method="POST"> 
+            <label for="user">Please choose your OpenID Provider and authenticate.</label> 
+            <!--input type="text" name="user" id="user" /--> 
+            <select name="openIdURL" id="openIdURL1"> 
+              <option value="https://www.google.com/accounts/o8/id">Google</option> 
+              <option value="https://me.yahoo.com">Yahoo</option> 
+              <option value="https://www.myopenid.com">MyOpenID</option>
+              <option value="other">Other</option>
+            </select> 
+            <input id="otherID" name="otherID" type="text"
+                   placeholder="Your OpenID URL" style="display:none;"
+                   class="half"> 
+            <input type="submit" value="Authenticate Me!" class="btn"> 
+          </form>
+
+          <script type="text/javascript">
+            $("#openIdURL1").change(function() {
+              console.log("change");
+              $("#otherID").show();
+            });
+          </script>
+
+          <h2>Or Use Your Email Address</h2>
+          <form class="emailSignIn" action="/Application/signIn" method="POST"> 
+            <label>Email Address</label> 
+            <input type="text" name="user.email" 
+                   placeholder="Email Address" class="half email"> 
+            <label>Password</label> 
+            <input type="hidden" class="password" name="user.password"> 
+            <input type="password"  placeholder="Password"
+                   class="half fakePassword"> 
+            <label></label> 
+            <input type="submit" value="Sign In"> 
+          </form>
+
+        </div>
+      </div>
+      <script type="text/javascript">
+        $("form.emailSignIn").submit(function() {
+          var form = $(this);
+          var pass = form.find(".fakePassword").val();
+          if (pass && pass !== "") {
+            pass = $.sha1($.sha1(pass));
+            form.find(".password").val(pass);
+          }
+          return true;
+        });
+      </script>
+    </div>
+
+    <!--
+    CREATE ACCOUNT
+    -->
+
+    <div id="createAccount" class="section">
+      <div class="white">
+        <div class="center">
+
+          <h2>Use Your OpenID</h2>
+          <form action="/Application/openID" method="POST"> 
+            <label for="user">Please choose your OpenID Provider and authenticate.</label> 
+            <!--input type="text" name="user" id="user" /--> 
+            <select name="openIdURL" id="openIdURL"> 
+              <option value="https://www.google.com/accounts/o8/id">Google</option> 
+              <option value="https://me.yahoo.com">Yahoo</option> 
+              <option value="https://www.myopenid.com">MyOpenID</option>
+              <option value="other">Other</option>
+            </select> 
+            <input id="otherID" name="otherID" type="text"
+                   placeholder="Your OpenID URL" style="display:none;"> 
+            <input type="submit" value="Authenticate Me!" class="btn"> 
+          </form>
+
+          <h2>Or Create an Account</h2>
+          <form class="createEmailAccount" action="/UpdateController/createUser" method="POST" enctype="multipart/form-data"> 
+            <input type="hidden" name="refURL"/>
+            <label>Name <span class="req">*required</span></label> 
+            <input type="text" name="user.firstName" placeholder="First Name"
+                   class="half firstName"> 
+            <input type="text" name="user.lastName" placeholder="Last Name"
+                   class="half lastName"> 
+            <div class="fileUpload"> 
+              <label>Profile Image</label> 
+              <input type="file" name="user.avatar" class="avatar"> 
+            </div> 
+            <label>Email Address <span class="req">*required</span></label> 
+            <input type="text" name="user.email" class="email"
+                   placeholder="Email Address"> 
+            <label>Password <span class="req">*required</span></label> 
+            <input type="hidden" id="password" name="user.password" 
+                   class="password"> 
+            <input type="password"  placeholder="Password" 
+                   class="half fakePassword"> 
+            <input type="password"  placeholder="Repeat Password" 
+                   class="half fakePasswordRepeat"> 
+            <label>Organization</label> 
+            <input type="text" name="user.organization" class="organization">
+            <label>Description</label>
+            <div class=" help">
+              You can use plain text or 
+              <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax. 
+            </div> 
+            <textarea name="user.description" class="description"
+                      rows="5"></textarea> 
+            <br>
+            <input type="submit" value="Create Account" class="btn"> 
+            <span class='error'></span>
+          </form>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        $("form.createEmailAccount").submit(function() {
+          var form = $(this);
+          var faker = form.find(".fakePassword");
+          var pass = faker.val();
+          var repeater = form.find(".fakePasswordRepeat");
+          if (faker.val() === "" || pass !== repeater.val()) {
+            faker.addClass("error").val("").attr("placeholder", "Password");
+            repeater.addClass("error").val("").attr("placeholder", "Repeat Password");
+            form.find("span.error").text("Invalid Password.");
+            return false;
+          } else {
+            pass = $.sha1($.sha1(pass));
+            form.find(".password").val(pass);
+            return true;
+          }
+        });
+      </script>
+
+    </div>
+
+    <!-- -->
+
+    <div id="editPerson" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>Create an Account</h2>
+          <form action="/UpdateController/editUser" 
+                method="POST" enctype="multipart/form-data"> 
+            <input type="hidden" name="refURL" value=""/>
+            <input type="hidden" name="user.id" class="id"/>
+            <input type="hidden" name="user.openID" class="openID"/>
+            <label>Name <span class="req">*required</span></label> 
+            <input type="text" name="user.firstName" 
+                   placeholder="First Name" class="half firstName"> 
+            <input type="text" name="user.lastName"
+                   placeholder="Last Name" class="half lastName"> 
+            <div class="fileUpload"> 
+              <label>Profile Image</label> 
+              <input type="file" name="user.avatar" class="avatar"> 
+            </div> 
+            <label>Email Address <span class="req">*required</span></label> 
+            <input type="text" name="user.email"  class="email"
+                   placeholder="Email Address"> 
+            <span class="changePassword">
+              <label>Password</label> 
+              <input type="hidden" id="password" name="user.password"> 
+              <input type="password"  placeholder="Password" name="fakePassword" class="half"> 
+              <input type="password"  placeholder="Repeat Password" name="fakePasswordRepeat" class="half"> 
+            </span>
+            <label>Organization</label> 
+            <input type="text" name="user.organization" class="organization"> 
+            <label>Description</label> 
+            <textarea name="user.description" class="description" rows="5"></textarea> 
+            <br> 
+            <input type="submit" value="Edit Account" class="btn"> 
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!--
+    ---------------------------------------------------------------------
+    -->
+
+    <div id="person" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>
+            <span class="firstName">Marc</span> 
+            <span class="lastName">Schwartz</span> 
+            <a class="edit id toHref" href="/person/edit/">Edit</a>
+          </h2>
+          <img class="avatar thumb" 
+               width="128"
+               height="128"
+               src="/public/img/person.png"> 
+          <label>Email Address</label> 
+          <span class="email">x@z.com</span> 
+          <label>Organization</label> 
+          <p class="organization">My Place</p> 
+          <label>Description</label> 
+          <div class="markdown description">
+            Markdown
+          </div> 
+          <div class="starred">
+            <h2>Starred</h2>
+            <label>Schemas</label>
+            <div class="schemas">
+
+              <ul>
+                <li><a class="id toHref full" href="/schema/">
+                    <span class="skeemaID">hi</span></a></li>
+              </ul>
+            </div>
+            <div class="threeCol">
+              <div class="dsus col">
+                <div class="pad">
+                  <label>DSUs</label>
+                  <ul>
+                    <li>
+                      <a class="id toHref full" href="/DSU/"> 
+                        <div class="name">
+                        </div> 
+                      </a> 
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dpus col">
+                <div class="pad">
+                  <label>DPUs</label>
+                  <ul>
+                    <li>
+                      <a class="id toHref full" href="/DPU/"> 
+                        <div class="name">
+                        </div> 
+                      </a> 
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dvus col">
+                <div class="pad">
+                  <label>DVUs</label>
+                  <ul>
+                    <li>
+                      <a class="id toHref full" href="/DVU/"> 
+                        <div class="name">
+                        </div> 
+                      </a> 
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="contributed">
+            <h2>Contributed</h2>
+            <label>Schemas</label>
+            <div class="schemas">
+              <ul>
+                <li> <a class="id toHref full" href="/schema/"> 
+                    <span class="skeemaID">
+                    </span> </a> </li>
+              </ul>
+            </div>
+
+            <div class="threeCol">
+              <div class="dsus col">
+                <div class="pad">
+                  <label>DSUs</label>
+                  <ul>
+                    <li>
+                      <a class="id toHref full" href="/DSU/"> 
+                        <div class="name">
+                        </div> 
+                      </a> 
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dpus col">
+                <div class="pad">
+                  <label>DPUs</label>
+                  <ul>
+                    <li>
+                      <a class="id toHref full" href="/DPU/"> 
+                        <div class="name">
+                          Ohmage
+                        </div> 
+                      </a> 
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dvus col">
+                <div class="pad">
+                  <label>DVUs</label>
+                  <ul>
+                    <li>
+                      <a class="id toHref full" href="/DVU/"> 
+                        <div class="name">
+                          Ohmage
+                        </div> 
+                      </a> 
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    ---------------------------------------------------------------------
+    -->
+
+    <div id="people" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>People</h2>
+          <ul>
+            <li class="tall">
+              <a class="id toHref" href="/person/">
+                <img class="avatar thumb"
+                     width="50"
+                     height="50"
+                     src=""/> 
+                <span class="firstName">
+                  Marc s Schwartz
+                </span>
+                <span class="lastName">
+                  Marc s Schwartz
+                </span>
+                <br>
+                <span class="organization">
+                  Openx  mHealth
+                </span>
+              </a>
+            </li>
+          </ul>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    ---------------------------------------------------------------------
+    -->
+
+    <div id="searchResults" class="section">
+      <div class="white">
+        <div class="center">
+
+          <div class="results">
+            Search results for: <span class="q"></span>
+          </div>
+
+          <div class="schemas">
+            <h2>Schemas</h2>
+            <ul>
+              <li>
+                <a class="id toHref full" href="/schema/">
+                  <span class="skeemaID">skeema</span>
+                  <br>
+                  <span class="light keyWords">No keywords yet, please add some.</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="units">
+            <h2>Units</h2>
+            <div class="dsus">
+              <ul>
+                <li class="half">
+                  <a class="id toHref full" href="/DSU/"> 
+                    <div class="name">
+                      Test DSU
+                    </div> 
+                    <div class="organizations">
+                      <div>
+                        <span>Open mHealth Testers</span>
+                      </div>
+                    </div>  
+                    <div class="light keyWords">
+                      No keywords yet, please add some.
+                    </div>
+                  </a> 
+                </li>
+              </ul>  
+              <div class="clear"></div>
+            </div>
+            <div class="dpus">
+              <ul>
+                <li class="half">
+                  <a class="id toHref full" href="/DPU/"> 
+                    <div class="name">
+                      Test DPU
+                    </div> 
+                    <div class="organizations">
+                      <div>
+                        <span>Open mHealth Testers</span>
+                      </div>
+                    </div>  
+                    <div class="light keyWords">
+                      No keywords yet, please add some.
+                    </div>
+                  </a> 
+                </li>
+              </ul>  
+              <div class="clear"></div>
+            </div>
+            <div class="dvus">
+              <ul>
+                <li class="half"> 
+                  <a class="id toHref full" href="/DVU/"> 
+                    <div class="name">
+                      Ohmage
+                    </div> 
+                    <div class="organizations">
+                      <div>
+                        <span>Open mHealth Testers</span>
+                      </div>
+                    </div>  
+                    <div class="light keyWords">
+                      dsu
+                    </div>
+                  </a> 
+                </li>
+              </ul>
+              <div class="clear"></div>
+            </div>
+
+          </div>
+
+          <div class="people">
+            <h2>People</h2>
+            <ul>
+              <li class="tall">
+                <a class="id toHref" href="/person/">
+                  <img class="thumb avatar"
+                       src="/admin/users/1/avatar" 
+                       width="50"
+                       height="50"> 
+                  <span class="firstName">
+                    Marc 
+                  </span>
+                  <span class="lastName">
+                    Schwartz
+                  </span>
+                  <br>
+                  <span class="organization">
+                    Opensd mHealth
+                  </span>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--   -->
+
+    <div id="error" class="section">
+      <div class="white">
+        <div class="center">
+          <h2>404: Not Found</h2>
+          <p>The URL specified does not exist.</p>
+        </div>
+      </div>
+    </div>
+
+    <!--   -->
+    <div id="footer">
+      <div class="msg"></div>
+      Copyright © 2013 Open mHealth, a project of the Tides Center. All Rights Reserved. 
+    </div>
+
+    <script type="text/javascript">
+      $("ul").each(function() {
+        var ul = $(this);
+        items = ul.find("li");
+        var max = 10;
+        if (items.length > max) {
+          items.each(function(k, v) {
+            if (k > max) {
+              $(v).addClass("hidden").addClass("canHide");
+            }
+          });
+          var lessMore = $("<li class='lessMore more'>More...</li>");
+          ul.append(lessMore);
+          lessMore.click(function() {
+            var lm = $(this);
+            if (lm.hasClass("more")) {
+              lm.text("Less...").removeClass("more").addClass("less");
+              lm.parent().find(".canHide").removeClass("hidden");
+            } else {
+              lm.text("More...").removeClass("less").addClass("more");
+              lm.parent().find(".canHide").addClass("hidden");
+            }
+          });
+        }
+      });
+    </script>
+
+  </body>
+</html>

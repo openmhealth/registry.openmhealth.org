@@ -1,0 +1,59 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+*      /admin               module:crud
+
+GET   /                           Application.index
+GET   /debug                      Application.debug
+GET   /about                      Application.about
+GET   /schemas                    Application.schemas
+GET   /units                      Application.units
+GET   /people                     Application.people
+GET   /attachment/{uuid}          Application.attachment
+GET   /thumbnail/{w}x{h}/{uuid}   Application.thumbnail
+GET   /sign-in                    Application.signIn
+GET   /sign-out                   Application.signOut
+GET   /search                     Search.search
+
+GET   /openID                     Application.openIDStep1
+GET   /person/create              Application.createPerson
+GET   /person/edit/{id}           Application.editPerson
+GET   /person/{id}                Application.person
+
+GET   /schema/edit/{id}           Application.editSchema
+GET   /schema/delete/{id}         UpdateController.deleteSchema
+GET   /schema/{id}                Application.schema  
+
+GET   /DSU/create                 Application.createDSU
+GET   /DPU/create                 Application.createDPU
+GET   /DVU/create                 Application.createDVU
+
+GET   /DSU/edit/{id}              Application.editDSU
+GET   /DPU/edit/{id}              Application.editDPU
+GET   /DVU/edit/{id}              Application.editDVU
+
+GET   /DSU/delete/{id}            UpdateController.deleteDSU
+GET   /DPU/delete/{id}            UpdateController.deleteDPU
+GET   /DVU/delete/{id}            UpdateController.deleteDVU
+
+GET   /DSU/{id}                   Application.dsu
+GET   /DPU/{id}                   Application.dpu
+GET   /DVU/{id}                   Application.dvu
+
+GET   /DSUs                       Application.dsus
+GET   /DPUs                       Application.dpus
+GET   /DVUs                       Application.dvus
+
+
+
+
+*    /uploadStatus               Application.uploadStatus
+
+GET   /favicon.ico                404
+
+GET   /public/                    staticDir:public
+
+*     /{controller}/{action}      {controller}.{action}

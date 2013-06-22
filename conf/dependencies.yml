@@ -1,0 +1,8 @@
+# Application dependencies
+
+require:
+    - play
+    - play -> secure
+    - play -> search 2.0
+    - play -> crud
+    - play -> markdown 1.8

@@ -1,0 +1,456 @@
+/* 
+    Document   : style
+    Created on : May 29, 2013, 3:03:02 PM
+    Author     : maku
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{ 
+  font-family: "proxima-nova", serif;
+  margin: 0;
+  color:#132d3e;
+  width: 1060px;
+  margin: auto;
+  background-image: url(/public/img/bgGrey.gif);
+}
+
+#header{
+  background-color: #5aacb0;
+  padding-top: 70px;
+  padding-bottom: 10px;
+  /*
+  height:140px;
+  */
+}
+#header .content{
+}
+
+ul.welcome,
+ul.nav{
+  float:right;
+}
+
+ul.welcome{
+  margin-top: -35px;
+}
+
+ul.nav{
+}
+
+
+ul.welcome{
+  margin-top: -60px;
+}
+
+ul.welcome li,
+ul.nav li{
+  display: inline-block;
+  margin-left: 30px;
+  font-weight: lighter;
+}
+ul.welcome li{
+  margin-left: 10px;
+}
+
+a,a{
+  cursor: pointer;
+  color:#fff;
+  text-decoration: none;
+}
+ul.welcome li a{
+  font-size: 11px;
+}
+
+.active a,a:hover{
+  color:#737373;
+}
+.center{
+  width: 960px;
+  margin: auto;
+}
+
+.logo{
+  width:200px; 
+  height:46px; 
+  /*  
+    position: absolute;
+    top:50%;
+    margin-top: -40px;
+  */
+}
+
+h1{
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  color: #5aacb0;
+  font-weight: normal;
+}
+h1 span.sub{
+  font-size: 15px;
+  color: #111;
+}
+
+.v80{
+  height: 80px;
+}
+
+.v60{
+  height: 60px;
+}
+.v40{
+  height: 40px;
+}
+
+p{
+  margin-bottom: 10px;
+}
+
+form.search{
+  background-color: #fff;
+  padding: 7px;
+  border: #aaa solid 1px;
+}
+
+.search input{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width:360px;
+}
+.search input[value=go]{
+  float: right;
+  cursor: pointer;
+  text-indent: -9999px;
+  border: none;
+  height: 1.5em;
+  width: 1.5em;
+  background-image: url(/public/img/search.png);
+  background-size: contain;
+}
+#subHead{
+  padding: 20px 0;
+  background-image: url(/public/img/bgHomeHero.png);
+  background-size: 66px;
+  background-position-y: 10px;
+  height:48px;
+}
+
+#subHead h1{
+  float: left;
+  margin-top: 7px;
+}
+
+#subHead form.search{
+  float: right;
+  width: 400px;
+  margin-top: 4px;
+}
+.clear{
+  clear: both;
+}
+.white{
+  background-color: #fff;
+  color:rgb(115, 115, 115);
+  font-size: 13px;
+  padding-bottom: 20px;
+}
+.white a{
+  color:#737373;
+}
+.white a:hover{
+  color:#444;
+}
+
+.white ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.white ul li{
+  overflow: hidden;
+  border: none;
+  padding: 10px;
+  background-color: #eee;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+.white ul li.tall{
+  float:left;
+  width: 300px;
+  margin-left: 10px;
+  height: 70px;
+  line-height: 1.5em;
+}
+
+
+.light{
+  opacity: .7;
+}
+
+.white ul li.tall:first-child{
+  margin-left: 0;
+}
+
+.white ul li.tall:hover{
+  background-color: #eee;
+
+}
+
+.white ul li.tall span{
+  position: relative;
+  top:1em;
+}
+
+.white ul li.tall label.inline{
+  display: inline-block;
+  width: 100px;
+}
+
+
+.white ul li.tall img{
+  float: left;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+h2{
+  color: #5aacb0;
+  border-bottom: 2px #5aacb0 solid;
+  margin: 0;
+  padding-top: 20px;
+  margin-bottom:10px;
+  font-size: 17px;
+}
+
+.leftCol{
+  width: 49%;
+  float: left;
+}
+.rightCol{
+  width: 49%;
+  float: right;
+}
+
+#footer{
+  background-color: transparent;  
+  text-align: center;
+  padding: 20px 0;
+  font-size: 11px;
+}
+
+label{
+  border-bottom: #ccc 1px solid;
+  text-transform: capitalize;
+  display: block;
+  margin-top:10px;
+  margin-bottom:5px;
+  color:#999;
+  font-weight: bold;
+}
+
+form label{
+  color:#777;
+  border: none;
+}
+
+input[type=password],
+textarea,
+input[type=text]{
+  border: 1px #777 solid;
+  padding: 5px;
+  width:520px;
+}
+
+input.half{
+  margin-right: 10px;
+  width:248px;
+}
+
+p{
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+h2 a.edit{
+  position: relative;
+  top:-4px;
+  float: right;
+  font-size: 12px;
+  padding: 5px 7px;
+}
+
+form *.error{
+}
+
+*.error::-webkit-input-placeholder { /* WebKit browsers */
+  color:    red;
+}
+*.error:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    red;
+}
+*.error::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    red;
+}
+*.error:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:    red;
+}
+
+span.error{
+  color:    red;
+}
+
+.req{
+  opacity: .7;
+  color:red;
+  font-weight: normal;
+  text-transform: lowercase;
+}
+
+.results,
+.noResults{
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.hidden{
+  display: none;
+}
+
+.schemaUpload{
+  background-color: #eee;
+  padding: 20px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.threeCol{
+
+}
+
+.threeCol .col{
+  width: 33.33%;
+  float: left;
+}
+.threeCol .col .inner{
+  background: #eee;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+#units .threeCol .col .inner{
+  height: 280px;
+}
+
+.dsuIcon,
+.dpuIcon,
+.dvuIcon{
+  height: 128px;
+  width: 128px;
+  margin: auto;
+}
+
+.dsuIcon{
+  background-image: url("/public/img/dsu.png");
+}
+.dpuIcon{
+  background-image: url("/public/img/dpu.png");
+}
+
+.dvuIcon{
+  background-image: url("/public/img/dvu.png");
+}
+
+#units .browse,
+#units .reg{
+  display: block;
+  padding: 5px;
+}
+
+#units .browse{
+  margin-top: 15px;
+}
+
+.loading{
+  position: relative;
+  top:5px;
+}
+
+li.half{
+  float: left;
+  width: 50%;
+}
+
+li.half{
+}
+
+ul.units .name{
+  font-weight: bold;
+}
+
+#schema a.test{
+}
+
+.testResults{
+  background: #eee;
+  margin-top: 10px;
+  padding: 10px;
+  border: #ddd 1px solid;
+}
+
+.description.markdown{
+  /*
+  background: #eee;
+  */
+  padding: 10px;
+}
+
+div.description.markdown{
+  background: #eee;
+}
+
+.description.markdown code{
+  color:darkgreen;
+}
+
+#schema .dsus{
+  background-color: #eee;
+  padding: 10px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.stars{
+  cursor: pointer;
+  background:url("/public/img/star.png");
+  display: inline-block;
+  background-size: 1.2em;
+  width: 1.2em;
+  height:1.2em;
+}
+
+.stars:hover{
+  background-color:#eee;
+}
+
+.stars.selected{
+  background-color:#5aacb0;
+}
+
+.contributed .col .pad{
+  padding-left: 10px;
+}
+.contributed .col:first-child .pad{
+  padding-left: 0px;
+}
+
+textarea.dsuSkeemas,
+textarea.dpuSkeemas,
+textarea.dvuSkeemas{
+  height: 7em;
+}
