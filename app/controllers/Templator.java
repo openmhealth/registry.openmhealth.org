@@ -13,18 +13,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.Lob;
+import models.DSU;
+import models.OrmBase;
 import models.User;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.parser.Tag;
 import org.jsoup.select.Elements;
 import play.Play;
 import play.db.jpa.Blob;
 import play.mvc.Controller;
 import play.vfs.VirtualFile;
-import utils.TemplateEngine;
 
 /**
  *
@@ -59,6 +62,28 @@ public class Templator extends Controller {
     return user;
   }
 
+  public Element generateForm(OrmBase ormBase) {
+    Element form = new Element(Tag.valueOf("form"), "/");
+    try {
+      java.lang.reflect.Field[] fields = ormBase.getClass().getFields();
+      for (java.lang.reflect.Field field : fields) {
+        String name = field.getName();
+        Element label = form.appendElement("label").text(name);
+        Element input;
+        if (field.getType() == Blob.class) {
+          input = form.appendElement("input").attr("type", "file").text(name);
+        } else if (field.isAnnotationPresent(Lob.class)) {
+          input = form.appendElement("textarea").text(name);
+        } else {
+        }
+        input = form.appendElement("label").text(name);
+      }
+    } catch (IllegalArgumentException ex) {
+      Logger.getLogger(DSU.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return form;
+  }
+
   protected static Document _getTemplate(String sectionName) throws IOException {
     Document doc = null;
     VirtualFile vf = VirtualFile.fromRelativePath(
@@ -85,7 +110,7 @@ public class Templator extends Controller {
         dom.select(".signIn").first().remove();
         dom.select(".signOut a.username").first()
                 .text(user.firstName + " " + user.lastName)
-                .attr("href", "/author/" + user.id);
+                .attr("href", "/person/" + user.id);
       } else {
         session.remove(USER_ID);
         dom.select(".welcome.signOut").remove();

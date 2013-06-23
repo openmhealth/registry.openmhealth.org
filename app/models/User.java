@@ -5,27 +5,21 @@
 package models;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.data.validation.Unique;
 import play.db.jpa.Blob;
-import play.db.jpa.Model;
 import play.modules.search.Field;
 import play.modules.search.Indexed;
 
 /**
- *
  * @author maku
  */
 @Entity
 @Indexed
-public class User extends Model {
+public class User extends OrmBase {
 
   @Unique
   public String openID;

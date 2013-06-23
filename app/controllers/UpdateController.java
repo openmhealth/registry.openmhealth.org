@@ -1,10 +1,7 @@
 package controllers;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jobs.AddSchemas;
 import models.DPU;
 import models.DSU;
@@ -12,12 +9,8 @@ import models.DVU;
 import models.Skeema;
 import models.User;
 import org.jsoup.nodes.Document;
-import play.Play;
 import play.data.validation.Valid;
 import play.data.validation.Validation;
-import play.db.jpa.JPABase;
-import play.libs.F.Action;
-import play.mvc.*;
 
 public class UpdateController extends Templator {
 
@@ -102,19 +95,26 @@ public class UpdateController extends Templator {
   }
 
   public static void deleteSchema(Long id) {
-    redirect("/");
+    Skeema skeema = Skeema.findById(id);
+    skeema.delete();
+    redirect("/schemas");
   }
 
   public static void deleteDPU(Long id) {
-    redirect("/");
+    DPU dpu = DPU.findById(id);
+    dpu.delete();
+    redirect("/DPUs");
   }
 
   public static void deleteDSU(Long id) {
-    redirect("/");
+    DSU dsu = DSU.findById(id);
+    dsu.delete();
+    redirect("/DSUs");
   }
 
   public static void deleteDVU(Long id) {
-    redirect("/");
+    DVU dvu = DVU.findById(id);
+    redirect("/DVUs");
   }
 
   public static void createDSU(@Valid DSU dsu) {
@@ -123,7 +123,11 @@ public class UpdateController extends Templator {
       redirect("/sign-in");
     }
     dsu.maintainers.add(user);
+    //dsu.save();
+    //dsu.refresh();
+    //dsu = DSU.findById(dsu.id);
     String schemaIDs = params.get("skeemas");
+    //String schemaIDs = null;
     if (schemaIDs != null) {
       String[] sa = schemaIDs.split(",");
       AddSchemas addSchemas = new AddSchemas(dsu, user);
@@ -132,6 +136,8 @@ public class UpdateController extends Templator {
       }
       addSchemas.now();
       redirect("/uploadStatus");
+    } else {
+      redirect("/DSU/" + dsu.id);
     }
   }
 
@@ -184,7 +190,7 @@ public class UpdateController extends Templator {
     } else {
       DSU fetchedDSU = DSU.findById(dsu.id);
       if (fetchedDSU != null) {
-        fetchedDSU.update(dsu);
+        fetchedDSU.copyFieldsFrom(dsu);
         fetchedDSU.skeemas = includeSchemas(params.get("skeemas"));
         fetchedDSU.save();
       }
@@ -204,7 +210,7 @@ public class UpdateController extends Templator {
     } else {
       DPU fetchedDPU = DPU.findById(dpu.id);
       if (fetchedDPU != null) {
-        fetchedDPU.update(dpu);
+        fetchedDPU.copyFieldsFrom(dpu);
         fetchedDPU.skeemas = includeSchemas(params.get("skeemas"));
         fetchedDPU.save();
       }
@@ -224,7 +230,7 @@ public class UpdateController extends Templator {
     } else {
       DVU fetchedDVU = DVU.findById(dvu.id);
       if (fetchedDVU != null) {
-        fetchedDVU.update(dvu);
+        fetchedDVU.copyFieldsFrom(dvu);
         fetchedDVU.skeemas = includeSchemas(params.get("skeemas"));
         fetchedDVU.save();
       }

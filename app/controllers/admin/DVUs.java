@@ -2,11 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.admin;
+
+import controllers.CRUD;
 
 /**
  *
  * @author maku
  */
-public class Stars extends CRUD {
+public class DVUs extends CRUD {
 }

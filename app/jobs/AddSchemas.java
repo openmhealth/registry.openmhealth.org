@@ -39,13 +39,17 @@ public class AddSchemas extends Job {
         skeema.skeemaID = sta.schemaID;
       }
       skeema.maintainers.add(sta.maintainer);
-      skeema.save();
+      //skeema.save();
+      //skeema = Skeema.findById(skeema.id);
+      System.out.println("DSU = " + dsu);
+      System.out.println("DSU.skeemas = " + dsu.skeemas);
       dsu.skeemas.add(skeema);
+      skeema.save();
       i++;
     }
     Cache.set(user.id + "addSchema", null);
-    schemasToAdd.clear();
     dsu.save();
+    schemasToAdd.clear();
   }
   //
   //
