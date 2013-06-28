@@ -22,7 +22,7 @@ import play.modules.search.Indexed;
 public class User extends OrmBase {
 
   @Unique
-  public String openID;
+  public String openID = null;
   @Required(message = "Your first name is required")
   @Field
   public String firstName;

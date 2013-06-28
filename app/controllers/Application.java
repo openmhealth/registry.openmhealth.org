@@ -34,28 +34,26 @@ import play.libs.OpenID;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import play.cache.Cache;
-import play.db.jpa.GenericModel;
 import play.db.jpa.GenericModel.JPAQuery;
 import play.db.jpa.JPABase;
-import play.db.jpa.Model;
 import play.vfs.VirtualFile;
 import utils.TemplateEngine;
 
 public class Application extends Templator {
-  
+
   private static final TemplateEngine T =
           new TemplateEngine(Application.class, "index.html");
-  
+
   public static void debug() throws FileNotFoundException, IOException {
     VirtualFile vf = VirtualFile.fromRelativePath(
             "app/views/Application/index.html");
     renderBinary(vf.getRealFile());
   }
-  
+
   private static List truncate(List input) {
     return input;
   }
-  
+
   private static List truncateX(List input) {
     int length = input.size() < 7 ? input.size() : 7;
     ArrayList output = new ArrayList();
@@ -64,19 +62,19 @@ public class Application extends Templator {
     }
     return output;
   }
-  
+
   private static void tombstone() {
     Document dom = getTemplate("tombstone");
     dom.select(".welcome, .nav, .search").remove();
     renderHtml(dom);
   }
-  
+
   public static void index() {
     if (request.domain.equalsIgnoreCase("registry.openmhealth.org")) {
       tombstone();
       return;
     }
-    
+
     Document dom = getTemplate("index");
     // ---
     JPAQuery jpa = Skeema.find(
@@ -142,11 +140,11 @@ public class Application extends Templator {
               text(key)
               //  text(key + " (" + keyWords.get(key) + ")")
               .appendElement("span").text(",");
-      
+
     }
     renderHtml(dom);
   }
-  
+
   private static void addKeys(List<JPABase> models, HashMap<String, Integer> keyWords) {
     try {
       for (JPABase model : models) {
@@ -165,7 +163,7 @@ public class Application extends Templator {
           }
         }
       }
-      
+
     } catch (IllegalArgumentException ex) {
       Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
@@ -176,11 +174,11 @@ public class Application extends Templator {
       Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
-  
+
   public static void about() {
     renderHtml(getTemplate("about"));
   }
-  
+
   public static void units() {
     renderHtml(getTemplate("units"));
   }
@@ -190,7 +188,7 @@ public class Application extends Templator {
   //--------------------------------------------------------------------------
   public static void schema(Long id) {
     Skeema skeema = Skeema.findById(id);
-    
+
     if (skeema == null) {
       send404();
     }
@@ -222,7 +220,7 @@ public class Application extends Templator {
                 + skeema.skeemaID);
       }
     }
-    
+
     List<Star> stars = Star.find("byNodeID", id.toString()).fetch();
     for (Star star : stars) {
       if (star.type.equalsIgnoreCase("schema")) {
@@ -230,16 +228,16 @@ public class Application extends Templator {
       }
     }
     renderHtml(dom);
-    
+
   }
-  
+
   public static void schemas() {
     List<Skeema> skeemas = Skeema.findAll();
     Document dom = getTemplate("schemas");
     bind(dom.select("#schemas ul"), skeemas);
     renderHtml(dom);
   }
-  
+
   public static void editSchema(Long id) {
     Skeema skeema = Skeema.findById(id);
     Document dom = getTemplate("editSchema");
@@ -267,6 +265,10 @@ public class Application extends Templator {
                 .append("<span class='error'>This user doesn't exist.</span>");
         dom.select("form.emailSignIn .email").addClass("error")
                 .attr("placeholder", user.email);
+      } else if (fetchedUser.openID != null) {
+        dom.select("form.emailSignIn")
+                .append("<span class='error'>This is an OpenID user. Please authenticate with OpenID.</span>");
+
       } else {// check password
         if (fetchedUser.password.equals(user.password)) {
           session.put(USER_ID, fetchedUser.id);
@@ -277,12 +279,12 @@ public class Application extends Templator {
     }
     renderHtml(dom);
   }
-  
+
   public static void signOut() {
     session.remove(USER_ID);
     redirect("/");
   }
-  
+
   public static void person(Long id) {
     User user = User.findById(id);
     if (user == null) {
@@ -335,7 +337,7 @@ public class Application extends Templator {
     dsus.clear();
     dpus.clear();
     dvus.clear();
-    
+
     JPAQuery jpa = Star.find(
             "select s from Star s "
             + "where s.user = ?",
@@ -364,7 +366,7 @@ public class Application extends Templator {
     // -- Render
     renderHtml(dom);
   }
-  
+
   public static void editPerson(Long id) {
     Document dom = getTemplate("editPerson");
     User user = User.findById(id);
@@ -381,14 +383,14 @@ public class Application extends Templator {
     bind(dom.select("#editPerson"), user);
     renderHtml(dom);
   }
-  
+
   public static void people() {
     List<User> users = User.findAll();
     Document dom = getTemplate("people");
     bind(dom.select("#people ul"), users);
     renderHtml(dom);
   }
-  
+
   public static void createPerson() {
     renderHtml(getTemplate("createAccount"));
   }
@@ -403,7 +405,7 @@ public class Application extends Templator {
     Document dom = getTemplate("createDSU");
     renderHtml(dom);
   }
-  
+
   public static void createDPU() {
     if (getUserID() == null) {
       redirect("/sign-in");
@@ -411,7 +413,7 @@ public class Application extends Templator {
     Document dom = getTemplate("createDPU");
     renderHtml(dom);
   }
-  
+
   public static void createDVU() {
     if (getUserID() == null) {
       redirect("/sign-in");
@@ -419,7 +421,7 @@ public class Application extends Templator {
     Document dom = getTemplate("createDVU");
     renderHtml(dom);
   }
-  
+
   public static void dsu(Long id) {
     DSU dsu = DSU.findById(id);
     if (dsu == null) {
@@ -441,7 +443,7 @@ public class Application extends Templator {
     }
     renderHtml(dom);
   }
-  
+
   public static void dpu(Long id) {
     DPU dpu = DPU.findById(id);
     if (dpu == null) {
@@ -452,15 +454,15 @@ public class Application extends Templator {
     Elements ul = dom.select("#dpu ul.user");
     ul.select("a.toHref").addClass("id");
     bind(ul, dpu.maintainers);
-    
+
     ul = dom.select("#dpu ul.schemas");
     ul.select(" li a").addClass("id");
     bind(ul, dpu.skeemas);
-    
+
     bindStars(dom, id);
     renderHtml(dom);
   }
-  
+
   private static void bindStars(Document dom, Long id) {
     List<Star> stars = Star.find("byNodeID", id.toString()).fetch();
     for (Star star : stars) {
@@ -469,7 +471,7 @@ public class Application extends Templator {
       }
     }
   }
-  
+
   public static void dvu(Long id) {
     DVU dvu = DVU.findById(id);
     if (dvu == null) {
@@ -480,11 +482,11 @@ public class Application extends Templator {
     Elements ul = dom.select("#dvu ul.user");
     ul.select("a.toHref").addClass("id");
     bind(ul, dvu.maintainers);
-    
+
     ul = dom.select("#dvu ul.schemas");
     ul.select(" li a").addClass("id");
     bind(ul, dvu.skeemas);
-    
+
     List<Star> stars = Star.find("byNodeID", id.toString()).fetch();
     for (Star star : stars) {
       if (star.type.equalsIgnoreCase("dvu")) {
@@ -493,7 +495,7 @@ public class Application extends Templator {
     }
     renderHtml(dom);
   }
-  
+
   public static void dsus() {
     List<DSU> dsus = DSU.findAll();
     Document dom = getTemplate("dsus");
@@ -521,7 +523,7 @@ public class Application extends Templator {
     }
     renderHtml(dom);
   }
-  
+
   public static void dpus() {
     List<DPU> dpus = DPU.findAll();
     Document dom = getTemplate("dpus");
@@ -529,7 +531,7 @@ public class Application extends Templator {
     bindMaintainers("#dpus", dom);
     renderHtml(dom);
   }
-  
+
   public static void dvus() {
     List<DVU> dvus = DVU.findAll();
     Document dom = getTemplate("dvus");
@@ -537,7 +539,7 @@ public class Application extends Templator {
     bindMaintainers("#dvus", dom);
     renderHtml(dom);
   }
-  
+
   public static void editDSU(Long id) {
     if (getUserID() == null) {
       redirect("/sign-in");
@@ -552,7 +554,7 @@ public class Application extends Templator {
     editSchemaField(dom.select(".dsuSkeemas").first(), dsu.skeemas);
     renderHtml(dom);
   }
-  
+
   private static void editSchemaField(Element textarea, List<Skeema> skeemas) {
     StringBuilder sb = new StringBuilder();
     for (Skeema skeema : skeemas) {
@@ -561,7 +563,7 @@ public class Application extends Templator {
     }
     textarea.val(sb.toString());
   }
-  
+
   public static void editDPU(Long id) {
     if (getUserID() == null) {
       redirect("/sign-in");
@@ -575,7 +577,7 @@ public class Application extends Templator {
     bind(dom.select("#editDpu"), dpu);
     renderHtml(dom);
   }
-  
+
   public static void editDVU(Long id) {
     if (getUserID() == null) {
       redirect("/sign-in");
@@ -589,7 +591,7 @@ public class Application extends Templator {
     bind(dom.select("#editDvu"), dpu);
     renderHtml(dom);
   }
-  
+
   private static void bindMaintainers(String section, Document dom) {
     JsonParser parser = new JsonParser();
     for (Element elm : dom.select(section + " ul li")) {
@@ -613,7 +615,7 @@ public class Application extends Templator {
       }
     }
   }
-  
+
   public static void uploadStatus() {
     if (getUserID() == null) {
       redirect("/sign-in");
@@ -686,7 +688,7 @@ public class Application extends Templator {
       star.save();
     }
   }
-  
+
   private static void send404() {
     Document dom = getTemplate("error");
     renderHtml(dom);
